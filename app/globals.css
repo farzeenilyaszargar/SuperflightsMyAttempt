@@ -1,6 +1,25 @@
 @import "tailwindcss";
 
-body
-{
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   font-family: var(--wix-font);
+  margin: 0;
+  background: #f4f0e8;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+::selection {
+  background: #f7c948;
+  color: #111313;
 }

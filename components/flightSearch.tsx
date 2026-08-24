@@ -1,11 +1,10 @@
-import Link from "next/link";
 import FlightSearch from "./flightSearchComponent";
 
 export default function FliSearch()
 {
     return(
-        <div className=" w-screen flex justify-center">
-            <div className="bg-white md:ml-22 md:mr-22 ml-10 mr-10  rounded-2xl  w-full h-fit">
+        <div className="w-full">
+            <div className="mx-auto w-full max-w-7xl rounded-[2rem] border border-white/60 bg-white/92 shadow-[0_30px_90px_rgba(21,25,29,0.22)] backdrop-blur-xl">
                 <FlightSearch/>
             </div>
         </div>

@@ -1,49 +1,58 @@
-import Image from "next/image";
 import Link from "next/link";
+import { Instagram, Linkedin, Mail, Plane, Twitter } from "lucide-react";
 
 export default function Footer()
 {
     return(
-        <div className=" flex flex-col justify-center items-center border-t ">
-            <div className=" w-screen h-fit  flex flex-row  justify-center mt-10 mb-10 gap-10 ">
-                <div className="  w-1/4 flex flex-col p-3">
-                    <h1  className="font-black text-2xl mb-3">About</h1>
-                    <p className="text-zinc-600 text-justify mr-5">ajdfhdjs hjkds fk jdshfkj dsjk f  akdsjh dksaj hdkjas hkdjas ddskdfddsan das daksj dkas dakjs hksjd ahksj dkjahd
-                        asdsajkhdkasj hdkasjhdks ajhdk asjdk ashkj dhsakj
-                          kashdk jah skjdh. kajshdkashk dahskdjskashdk jah skjdh. kajshdkashk dahskdjs
-                          kashdk jah skjdh. kajshdkashk dahskdjs kashdk jah skjdh. kajshdkashk dahskdjs 
+        <footer className="border-t border-[#dfd4c4] bg-[#111313] px-5 pt-14 text-white md:px-8">
+            <div className="mx-auto grid max-w-7xl gap-10 pb-14 md:grid-cols-[1.1fr_0.8fr_0.7fr]">
+                <div>
+                    <Link href="/" className="flex items-center gap-3">
+                        <span className="grid size-11 place-items-center rounded-full bg-[#f7c948] text-[#111313]">
+                            <Plane size={21} />
+                        </span>
+                        <span className="text-2xl font-black">Superflights</span>
+                    </Link>
+                    <p className="mt-5 max-w-md text-base font-semibold leading-7 text-white/62">
+                        A cleaner, calmer flight booking experience for travelers who want speed, style, and zero confusion.
                     </p>
+                    <div className="mt-6 flex gap-2">
+                        {[
+                            { icon: Instagram, label: "Instagram" },
+                            { icon: Twitter, label: "Twitter" },
+                            { icon: Linkedin, label: "LinkedIn" },
+                            { icon: Mail, label: "Email" },
+                        ].map((item) => {
+                            const Icon = item.icon;
+                            return (
+                                <Link key={item.label} href="/" aria-label={item.label} title={item.label} className="grid size-10 place-items-center rounded-full border border-white/12 text-white/70 transition hover:bg-white hover:text-[#111313]">
+                                    <Icon size={18} />
+                                </Link>
+                            );
+                        })}
+                    </div>
                 </div>
-                <div className="  w-1/4 p-3 flex flex-col text-xl ">
-                    
-                    <h1 className="font-black text-2xl">Links</h1>
-                    <Link href={'/company'} className="text-zinc-500 hover:text-black mt-1">Company</Link>
-                    <Link href={'/pp'} className="text-zinc-500 hover:text-black mt-1">Privacy Policy</Link>
-                    <Link href={'/tc'} className="text-zinc-500 hover:text-black mt-1">Terms and Conditions</Link>
-                    <Link href={'/tc'} className="text-zinc-500 hover:text-black mt-1">User Agreement</Link>
-                    <Link href={'/tc'} className="text-zinc-500 hover:text-black mt-1">Frequently Asked Questions</Link>
-                    <Link href={'/tc'} className="text-zinc-500 hover:text-black mt-1">Contact Us</Link>
-
-
+                <div>
+                    <h2 className="text-sm font-black uppercase text-[#f7c948]">Explore</h2>
+                    <div className="mt-5 grid gap-3 text-sm font-bold text-white/62">
+                        <Link href="/company" className="transition hover:text-white">Company</Link>
+                        <Link href="/travel-partners" className="transition hover:text-white">Travel Partners</Link>
+                        <Link href="/profile" className="transition hover:text-white">My Trips</Link>
+                        <Link href="/tc" className="transition hover:text-white">Terms and Conditions</Link>
+                    </div>
                 </div>
-                <div className=" flex flex-row justify-center  w-1/8 p-3 items-center ">
-                    <h1>Socials:  </h1>
-
-                    <Link href={'www.instagram.com/superflights.co.in'}><Image src={'/icons/insta.svg'} alt="insta" width={25} height={25} className="hover:scale-110"/></Link>
-                    <Link href={'www.twitter.com/superflights.co.in'}><Image src={'/icons/x.svg'} alt="x" width={25} height={25} className="hover:scale-110"/></Link>
-                    <Link href={'www.linkedin.com/superflights.co.in'}><Image src={'/icons/linkedin.svg'} alt="lin" width={25} height={25} className="hover:scale-110"/></Link>
-
-                    
+                <div>
+                    <h2 className="text-sm font-black uppercase text-[#f7c948]">Travel desk</h2>
+                    <div className="mt-5 space-y-3 text-sm font-bold text-white/62">
+                        <p>Delhi, Mumbai, Bengaluru, Goa, Kochi, Jaipur, and more.</p>
+                        <p>Support available for bookings, changes, and itinerary help.</p>
+                    </div>
                 </div>
-                
             </div>
-            
-            <div className="  font-black text-4xl overflow-hidden md:h-17 h-5 flex justify-center items-start">
-                <p className="md:text-9xl bg-gradient-to-b from-black to-white bg-clip-text text-transparent">SUPERFLIGHTS</p>
-                <span className="md:text-2xl">©</span>
+            <div className="mx-auto flex max-w-7xl flex-col gap-3 border-t border-white/10 py-6 text-xs font-bold text-white/42 md:flex-row md:items-center md:justify-between">
+                <p>Superflights &copy; 2026. Built for smoother departures.</p>
+                <p>Privacy Policy / User Agreement / Contact</p>
             </div>
-                
-            
-        </div>
+        </footer>
     );
 }
